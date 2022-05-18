@@ -29,7 +29,7 @@ const queryResult =  useQuery($page?.url?.pathname.replace('/',''),async()=>  aw
     <div class="single_recipe_container">
 
       <div class="recipe_img">
-          <img  src={$queryResult?.data?.data?.data?.recipe?.image_url} alt={$queryResult?.data?.data?.data?.recipe?.title} srcset="" width="100%" height="300px" style="object-fit: cover;border-radius: .2rem;">
+          <img  src={$queryResult?.data?.data?.data?.recipe?.image_url.replace('http', 'https')} alt={$queryResult?.data?.data?.data?.recipe?.title} srcset="" width="100%" height="300px" style="object-fit: cover;border-radius: .2rem;">
 
           <h1 class="recipe__title">
             <span>{$queryResult?.data?.data?.data?.recipe?.title}</span>
