@@ -11,6 +11,7 @@
 			$: pageSize = JSON.parse($paginatedStore)?.pageSize
 			$: paginatedItems = paginate({ items, pageSize, currentPage })
 
+
 </script>
 
 <!-- HTML SECTION -->
@@ -20,7 +21,7 @@
 		<a sveltekit:prefetch class="recipe_link" href='{recipe.id}'>
 			<div class="recipe_card">
 				<!-- ========================= -->
-				<img class="recipe__image" src={recipe.image_url} alt={recipe.title} srcset=""  />
+				<img class="recipe__image" src={recipe.image_url.replace('http', 'https')} alt={recipe.title} srcset=""  />
 
 				<div class="recipe__title">{recipe.title.split(/,|&|#|:/g)[0]}</div>
 
