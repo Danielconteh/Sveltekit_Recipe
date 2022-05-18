@@ -1,0 +1,29 @@
+{
+  "name": "Recipe",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "svelte-kit dev",
+    "build": "svelte-kit build",
+    "package": "svelte-kit package",
+    "preview": "svelte-kit preview",
+    "prepare": "svelte-kit sync"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/kit": "next",
+    "svelte": "3.46.0",
+    "@iconify/svelte": "2.2.1"
+  },
+  "type": "module",
+  "dependencies": {
+    "@fontsource/fira-mono": "4.5.0",
+    "@lottiefiles/svelte-lottie-player": "0.2.0",
+    "@lukeed/uuid": "2.0.0",
+    "@sveltestack/svelte-query": "1.4.0",
+    "axios": "0.27.2",
+    "cookie": "0.4.1",
+    "svelte-carousel": "1.0.7",
+    "svelte-paginate": "0.0.1",
+    "nprogress": "0.2.0"
+  }
+}
