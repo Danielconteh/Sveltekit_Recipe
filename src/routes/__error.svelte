@@ -13,10 +13,16 @@
 import ErrorScreen from "../component/errors/ErrorScreen.svelte";
 
 import NotFoundScreen from "../component/errors/NotFoundScreen.svelte";
+import {goto} from '$app/navigation';
 
  
  export let message;
   export let status;
+
+  $:if(status === 500 && message === 'error loading dynamically imported') {
+    goto('/')
+  }
+  // error loading dynamically imported module 500
   $:console.log(message,status)
 </script>
 
