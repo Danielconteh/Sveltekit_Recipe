@@ -19,11 +19,10 @@ import {goto} from '$app/navigation';
  export let message;
   export let status;
 
-  $:if(status === 500 && message === 'error loading dynamically imported') {
-    goto('/')
-  }
+  $:if(status === 500 && message === 'error loading dynamically imported') return goto('/')
+  
   // error loading dynamically imported module 500
-  $:console.log(message,status)
+  $:console.log(message,typeof(message))
 </script>
 
 {#if status == 404} <!-- Used '==' instead of '===' to match string/number status code (just to be sure) -->
