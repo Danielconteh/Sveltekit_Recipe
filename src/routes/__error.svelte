@@ -17,6 +17,7 @@ import NotFoundScreen from "../component/errors/NotFoundScreen.svelte";
  
  export let message;
   export let status;
+  $:console.log(message,status)
 </script>
 
 {#if status == 404} <!-- Used '==' instead of '===' to match string/number status code (just to be sure) -->
