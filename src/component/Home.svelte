@@ -85,7 +85,7 @@
 		<div class='cooking_ani'>
 
 			<LottiePlayer
-							src="src/lib/assets/cooking.json"
+							src="/cooking.json"
 							autoplay="{true}"
 							loop="{true}"
 							controls="{false}"
