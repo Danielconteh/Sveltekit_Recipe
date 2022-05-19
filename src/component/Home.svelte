@@ -12,7 +12,7 @@
 
 	import axios from 'axios'
 	import { fly } from 'svelte/transition';
-	import { store } from '../store';
+	import { store,imgRotate } from '../store';
 	import Recipes from '../component/recipes.svelte';
 	import FilterRecipe from '../component/filterRecipe.svelte';
 	import { onMount } from "svelte";
@@ -43,16 +43,6 @@
 		$: if($queryResult?.data?.data?.data?.recipes && !$queryResult.isLoading ) {
 			$store = JSON.stringify({name:JSON.parse($store)?.name})
 		}
-		let ani = true;
-		
-		$: if(browser){
-			 window.addEventListener('load', ()=>{
-					ani = true;
-				console.log('object')
-			})
-		}
-	
-	
 	
 </script>
 
@@ -61,7 +51,7 @@
 	 <!-- content here -->
 		<Header/>
 		
-		<svelte:component this={Carousel} arrows={false} autoplay={ani}  pauseOnFocus={true} dots={false} duration={600} autoplayDuration={9000} timingFunction='ease-in' style='overflow: hidden;'>
+		<svelte:component this={Carousel} arrows={false} autoplay={JSON.parse($imgRotate)?.rotate}  pauseOnFocus={true} dots={false} duration={600} autoplayDuration={9000} timingFunction='ease-in' style='overflow: hidden;'>
 			
 			<Banner/>
 					
