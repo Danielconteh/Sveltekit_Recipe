@@ -37,24 +37,19 @@
 		$: queryResult = useQuery(['recipe', JSON.parse($store)?.name],  () => axios.get(fetchRecipe(JSON.parse($store)?.name)), {
 			cacheTime:60 * 60 *24,
 			retry:10,
-			etryDelay: 1000,
 			refetchOnWindowFocus:true
 		});
-
 
 		$: if($queryResult?.data?.data?.data?.recipes && !$queryResult.isLoading ) {
 			$store = JSON.stringify({name:JSON.parse($store)?.name})
 		}
 		let ani = true;
 		
-		$:{
-			browser && window.addEventListener('blur', ()=> ani = false);
-			browser && window.addEventListener('focus', ()=> ani = true);
-		}
-
-		$: if(!ani){
-			browser && window.removeEventListener('blur',()=> ani = false);
-		browser &&	window.removeEventListener('focus', ()=> ani = true);
+		$: if(browser){
+			 window.addEventListener('load', ()=>{
+					ani = true;
+				console.log('object')
+			})
 		}
 	
 	
@@ -66,7 +61,7 @@
 	 <!-- content here -->
 		<Header/>
 		
-		<svelte:component this={Carousel} arrows={false} autoplay={ani}  pauseOnFocus={true} dots={false} duration={700} autoplayDuration={6000} timingFunction='ease-in'>
+		<svelte:component this={Carousel} arrows={false} autoplay={ani}  pauseOnFocus={true} dots={false} duration={600} autoplayDuration={9000} timingFunction='ease-in' style='overflow: hidden;'>
 			
 			<Banner/>
 					
@@ -100,7 +95,7 @@
 		<div class='cooking_ani'>
 
 			<LottiePlayer
-							src="/cooking.json"
+							src="src/lib/assets/cooking.json"
 							autoplay="{true}"
 							loop="{true}"
 							controls="{false}"
@@ -146,6 +141,7 @@
 	display: flex;
 	justify-content: center;
 	overflow: hidden;
+	overflow-x: hidden;
 	margin-top: 2rem;
 	width:100%
 	padding0rem 3rem;

@@ -37,7 +37,7 @@
     
     {#if typeof window != 'undefined'}
    <LottiePlayer
-			src="/preparing-food.json"
+			    src="src/lib/assets/preparing-food.json"
 					autoplay="{true}"
 					loop="{true}"
 					controls="{false}"

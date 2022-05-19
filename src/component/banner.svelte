@@ -1,6 +1,11 @@
 <script>
 
-  let items = ['./recipe1.jpg','./recipe2.webp','./recipe4.jpg','./recipe5.jpg','./recipe6.jpg','./recipe9.jpg','./recipe10.jpg','./recipe11.jpg','./recipe12.jpeg']
+	import img1 from '$lib/assets/recipe2.webp';
+	import img2 from '$lib/assets/recipe4.jpg';
+	import img3 from '$lib/assets/recipe6.jpg';
+	import img4 from '$lib/assets/recipe9.jpg';
+	import img5 from '$lib/assets/recipe11.jpg';
+	let items = [img1,img2,img3,img4,img5]
 </script>
 
 
@@ -13,7 +18,7 @@
 						<img src={item} alt="baner_image" srcset="" width="100%" height="100%"  style="object-fit: cover; object-position: center top;">				
 		</div>
 
-	{/each}
+	{/each} 
 					
 	<style>
 		.banner{

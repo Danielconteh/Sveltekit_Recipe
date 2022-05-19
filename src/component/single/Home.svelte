@@ -7,10 +7,14 @@ import SingleRecipeDetail from './singleRecipeDetail.svelte';
 import HowToCokeIt from './howToCokeIt.svelte';
 
  import { useQuery } from "@sveltestack/svelte-query";
-import axios from 'axios'
+ import axios from 'axios'
 
 
-const queryResult =  useQuery($page?.url?.pathname.replace('/',''),async()=>  await axios.get(`https://forkify-api.herokuapp.com/api/v2/recipes/${$page?.url?.pathname.replace('/','')}?key=2b6e977f-717b-462d-9ddd-0191e4dd46bc`,))
+const queryResult =  useQuery($page?.url?.pathname.replace('/',''), ()=>  axios.get(`https://forkify-api.herokuapp.com/api/v2/recipes/${$page?.url?.pathname.replace('/','')}?key=2b6e977f-717b-462d-9ddd-0191e4dd46bc`,),{
+			cacheTime:60 * 60 *24,
+			retry:10,
+			refetchOnWindowFocus:true
+		})
 
 
 </script>
@@ -65,7 +69,7 @@ const queryResult =  useQuery($page?.url?.pathname.replace('/',''),async()=>  aw
 
 <style>
   .sigle_recipe_wraper{
-    background:linear-gradient(0deg, rgba(1, 1, 1, .75), rgba(1, 1, 1, 0.75)),url(/recipe10.jpg);
+    background:linear-gradient(0deg, rgba(1, 1, 1, .75), rgba(1, 1, 1, 0.75)),url(src/lib/assets/recipe10.jpg);
     width: 100vw;
     min-height: 100vh;
     display: flex;

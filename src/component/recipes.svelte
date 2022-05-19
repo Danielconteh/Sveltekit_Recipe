@@ -90,11 +90,9 @@
 		width:90%;
 	}
 
-	@media screen and (max-width: 56.25em) {  
+	@media screen and (max-width: 56.25em) {  /* 900px => 56.25em*/
 		.recipes {
-			grid-template-columns: repeat(2, 1fr);
-			overflow: hidden;
-		
+			grid-template-columns: repeat(2, 1fr);		
 			width: 95%;
 			padding:	2rem;
 		}
