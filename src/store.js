@@ -29,6 +29,16 @@ export const imgRotate = writable(
 // CAROUSEL ROTATE ONLY WHEN IMAE HAS FINISH LOADING...
 imgRotate.subscribe((value) => browser && localStorage.setItem('rotate', value))
 
+// initial page to rotate
+export const initialPageNumber = writable(
+  (browser && localStorage.getItem('page')) || JSON.stringify({ page: 0 })
+)
+
+// initial page to rotate...
+initialPageNumber.subscribe(
+  (value) => browser && localStorage.setItem('page', value)
+)
+
 // FILTER_BUTON
 export let items = [
   'carrot',

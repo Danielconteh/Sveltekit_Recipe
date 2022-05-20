@@ -15,7 +15,6 @@
 	import { store,imgRotate } from '../store';
 	import Recipes from '../component/recipes.svelte';
 	import FilterRecipe from '../component/filterRecipe.svelte';
-	import { onMount } from "svelte";
 
 	import { LottiePlayer } from '@lottiefiles/svelte-lottie-player';
 	import Icon from '@iconify/svelte';
@@ -23,12 +22,7 @@
 	import Banner from '../component/banner.svelte';
 	import Header from '../component/header.svelte'
 
-	let Carousel;
 
-  onMount(async () => {
-    const module = await import("svelte-carousel");
-    Carousel = module.default;
-  });
 
 		
 		const fetchRecipe = (q)=> `https://forkify-api.herokuapp.com/api/v2/recipes?search=${q}&key=2b6e977f-717b-462d-9ddd-0191e4dd46bc`
@@ -51,11 +45,7 @@
 	 <!-- content here -->
 		<Header/>
 		
-		<svelte:component this={Carousel} arrows={false} autoplay={JSON.parse($imgRotate)?.rotate}  pauseOnFocus={true} dots={false} duration={600} autoplayDuration={9000} timingFunction='ease-in' style='overflow: hidden;'>
-			
-			<Banner/>
-					
-</svelte:component>
+		<Banner/>
 
 
 

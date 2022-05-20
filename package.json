@@ -9,10 +9,10 @@
     "prepare": "svelte-kit sync"
   },
   "devDependencies": {
+    "@iconify/svelte": "2.2.1",
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
-    "svelte": "3.46.0",
-    "@iconify/svelte": "2.2.1"
+    "svelte": "3.46.0"
   },
   "type": "module",
   "dependencies": {
@@ -22,8 +22,8 @@
     "@sveltestack/svelte-query": "1.4.0",
     "axios": "0.27.2",
     "cookie": "0.4.1",
+    "nprogress": "0.2.0",
     "svelte-carousel": "1.0.7",
-    "svelte-paginate": "0.0.1",
-    "nprogress": "0.2.0"
+    "svelte-paginate": "0.0.1"
   }
 }
