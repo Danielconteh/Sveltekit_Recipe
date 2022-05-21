@@ -1,4 +1,5 @@
 <script>
+	import Image from "svelte-image";
 	import { imgRotate,initialPageNumber } from '../store';
 	import { onMount } from "svelte";
 
@@ -9,6 +10,7 @@
 	import img4 from '$lib/assets/recipe9.jpg';
 	import img5 from '$lib/assets/recipe11.jpg';
 	let items = [img1,img2,img3,img4,img5]
+
 
 // simple trick [waite for the image before the animation start]
 	let waiting = 0
@@ -37,10 +39,9 @@
     Carousel = module.default;
   });
 
+		import imgix from 'svelte-imgix';
 
 </script>
-
-
 
 		<svelte:component this={Carousel} 
 		arrows={false} 
@@ -48,24 +49,31 @@
 		pauseOnFocus={true} 
 		dots={false}  
 		initialPageIndex={JSON.parse($initialPageNumber)?.page}
+		loaded=[5]
 		on:pageChange={
     event => $initialPageNumber = JSON.stringify({page:event.detail})
 			}>
 			
+
 			{#each items as item,index}
-			<div key={index} class="banner" style="width:90%; position:relative;">
+			<div key={index} class="banner" style="width:100%; position:relative; overflow:hidden">
+
+
+					<img use:onload class="selfImg" src={item} alt="baner_image"width="100%" height="100%" />			
 			
-				<img use:onload src={item} alt="baner_image" srcset="" width="100%" height="100%"  style="object-fit: cover; object-position: center top; overflow: hidden;">				
 			</div>
 			
 			{/each} 
 		</svelte:component>
 					
 	<style>
+		img{
+				object-fit: cover; 
+				object-position: center top; 
+				overflow: hidden;
+		}
 		.banner{
 			height:45vh;
-			/* width:100vw;
-			max-width:100vw; */
 			width:90%;
 			overflow: hidden;
 			cursor: pointer;

@@ -2,6 +2,8 @@
 	import {paginatedStore} from '../store'
 	import { paginate, LightPaginationNav} from 'svelte-paginate'
 	import Icon from '@iconify/svelte';
+	import Image from "svelte-image";
+
 
 	export let recipes;
 	
@@ -21,7 +23,7 @@
 		<a sveltekit:prefetch class="recipe_link" href='{recipe.id}'>
 			<div class="recipe_card">
 				<!-- ========================= -->
-				<img class="recipe__image" src={recipe.image_url.replace('http', 'https')} alt={recipe.title} srcset=""  />
+				<img class="recipe__image" srcset={recipe.image_url.replace('http', 'https')} alt={recipe.title} src={recipe.image_url.replace('http', 'https')}/>
 
 				<div class="recipe__title">{recipe.title.split(/,|&|#|:/g)[0]}</div>
 
@@ -88,8 +90,16 @@
 		margin: 0 auto;
 		min-height: 50vh;
 		width:90%;
+			-ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+
 	}
 
+.recipes::-webkit-scrollbar{
+			display: none;
+		 width: 0px;
+   background: transparent; /* make scrollbar transparent */
+	}
 	@media screen and (max-width: 56.25em) {  /* 900px => 56.25em*/
 		.recipes {
 			grid-template-columns: repeat(2, 1fr);		

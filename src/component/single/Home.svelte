@@ -8,11 +8,13 @@ import HowToCokeIt from './howToCokeIt.svelte';
 
  import { useQuery } from "@sveltestack/svelte-query";
  import axios from 'axios'
+ import ErrorScreen from '../errors/ErrorScreen.svelte'
+	import Icon from '@iconify/svelte';
+
 
 
 const queryResult =  useQuery($page?.url?.pathname.replace('/',''), ()=>  axios.get(`https://forkify-api.herokuapp.com/api/v2/recipes/${$page?.url?.pathname.replace('/','')}?key=2b6e977f-717b-462d-9ddd-0191e4dd46bc`,),{
 			cacheTime:60 * 60 *24,
-			retry:10,
 			refetchOnWindowFocus:true
 		})
 
@@ -23,6 +25,17 @@ const queryResult =  useQuery($page?.url?.pathname.replace('/',''), ()=>  axios.
   <title>{$queryResult?.data?.data?.data?.recipe?.title || ''}</title>
   </svelte:head>
 
+
+    {#if $queryResult.isLoading || $queryResult.isFetching}
+    	<div class="spinner">
+        				<Icon icon="ei:spinner-2" color="#ffffff" width="50" />
+		</div>
+  {/if}
+
+
+  {#if $queryResult.isError}
+     <ErrorScreen error={$queryResult?.error?.message}/>
+  {/if}
 
   <div class="sigle_recipe_wraper">
   {#if $queryResult?.data?.data?.data?.recipe && !$queryResult.isLoading}
@@ -68,6 +81,20 @@ const queryResult =  useQuery($page?.url?.pathname.replace('/',''), ()=>  axios.
 
 
 <style>
+.spinner{
+
+  position: absolute;
+  z-index: 1;
+  width:100%
+	padding0rem 3rem; 
+	animation: spinner 900ms infinite cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+@keyframes spinner {
+ 0%{transform: rotate(0deg);}
+	100%{transform: rotate(360deg);}
+}
+
   .sigle_recipe_wraper{
     background:linear-gradient(0deg, rgba(1, 1, 1, .75), rgba(1, 1, 1, 0.75)),url(src/lib/assets/recipe10.jpg);
     width: 100vw;

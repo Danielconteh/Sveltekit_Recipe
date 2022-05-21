@@ -3,9 +3,13 @@
 
 <script>
 import Icon from "@iconify/svelte";
+import Header from '../header.svelte'
+import Banner from "../banner.svelte";
 
 
  export let message;
+	export let error;
+	$:console.log(error)
 
 	import {goto} from '$app/navigation';
 
@@ -14,10 +18,14 @@ const refresher = ()=> goto('/',{
     noscroll: true
 })
 </script>
+<div class="error-wraper">
 
-<div class="refersh_container">
+	<Header/>
+	<Banner/>
+
+	<div class="refersh_container">
 <div class="error_container">
-	 <p>sorry <Icon icon="clarity:sad-face-solid" color="blue" /> something went wrong.</p>
+	<p>sorry <Icon icon="clarity:sad-face-solid" color="blue" /> something went wrong.</p>
  <!-- <p>{status}</p> -->
 	<p>{message}</p>
 	<button on:click={refresher}>refersh</button>
@@ -25,11 +33,20 @@ const refresher = ()=> goto('/',{
 </div>
 
 
+</div>
 
 
 
 
 <style>
+
+
+
+
+	.error-wraper{
+		height: 100vh;
+
+	}
  /* refersh_container */
 	.refersh_container{
 		display: flex;
@@ -41,7 +58,6 @@ const refresher = ()=> goto('/',{
 		text-transform: capitalize;
 		letter-spacing: .12rem;
 		font-family: Roboto;
-		height: 100vh;
 	}
 .error_container{
 	margin:	auto;

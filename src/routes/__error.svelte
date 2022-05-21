@@ -18,14 +18,15 @@ import {goto} from '$app/navigation';
  
  export let message;
   export let status;
+    $:console.log({ error, status })
+
 
   $:if(message === 'error loading dynamically imported module')  goto('/')
   
-  // error loading dynamically imported module 500
-  $:console.log(message,typeof(message))
+
 </script>
 
-{#if status == 404} <!-- Used '==' instead of '===' to match string/number status code (just to be sure) -->
+{#if status.startsWith('4')} <!-- Used '==' instead of '===' to match string/number status code (just to be sure) -->
   <NotFoundScreen />
 {:else}
   <ErrorScreen {message} {status} />

@@ -12,7 +12,8 @@
     "@iconify/svelte": "2.2.1",
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
-    "svelte": "3.46.0"
+    "svelte": "3.46.0",
+    "svelte-image": "^0.2.9"
   },
   "type": "module",
   "dependencies": {
@@ -24,6 +25,9 @@
     "cookie": "0.4.1",
     "nprogress": "0.2.0",
     "svelte-carousel": "1.0.7",
-    "svelte-paginate": "0.0.1"
+    "svelte-imgix": "^3.0.0",
+    "svelte-paginate": "0.0.1",
+    "svelte-preprocess": "^4.10.6",
+    "svelte-waypoint": "^0.1.4"
   }
 }
