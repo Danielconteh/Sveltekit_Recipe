@@ -25,9 +25,9 @@
     "cookie": "0.4.1",
     "nprogress": "0.2.0",
     "svelte-carousel": "1.0.7",
-    "svelte-imgix": "^3.0.0",
     "svelte-paginate": "0.0.1",
     "svelte-preprocess": "^4.10.6",
-    "svelte-waypoint": "^0.1.4"
+    "svelte-waypoint": "^0.1.4",
+    "vite-imagetools": "^4.0.3"
   }
 }

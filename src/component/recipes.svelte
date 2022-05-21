@@ -2,7 +2,7 @@
 	import {paginatedStore} from '../store'
 	import { paginate, LightPaginationNav} from 'svelte-paginate'
 	import Icon from '@iconify/svelte';
-	import Image from "svelte-image";
+	import Waypoint from 'svelte-waypoint';
 
 
 	export let recipes;
@@ -23,7 +23,9 @@
 		<a sveltekit:prefetch class="recipe_link" href='{recipe.id}'>
 			<div class="recipe_card">
 				<!-- ========================= -->
-				<img class="recipe__image" srcset={recipe.image_url.replace('http', 'https')} alt={recipe.title} src={recipe.image_url.replace('http', 'https')}/>
+				<Waypoint throttle="900" threshold='0.9'style="width:100%;object-fit:	cover;position:relative">
+					<img class="recipe__image" srcset={recipe.image_url.replace('http', 'https')} alt={recipe.title} src={recipe.image_url.replace('http', 'https')}/>
+	</Waypoint>
 
 				<div class="recipe__title">{recipe.title.split(/,|&|#|:/g)[0]}</div>
 
