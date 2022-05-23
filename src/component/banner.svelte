@@ -2,7 +2,7 @@
 	import { imgRotate,initialPageNumber } from '../store';
 	import { onMount } from "svelte";
 
-		let items = ['https://res.cloudinary.com/dbmrdwsfb/image/upload/v1653327682/Recipe/recipe6_ve0p71.jpg','https://res.cloudinary.com/dbmrdwsfb/image/upload/v1653327663/Recipe/recipe1_hyayjc.jpg','https://res.cloudinary.com/dbmrdwsfb/image/upload/v1653327645/Recipe/recipe11_iyysjk.jpg','https://res.cloudinary.com/dbmrdwsfb/image/upload/v1653327666/Recipe/recipe9_nmzwbo.jpg']
+		let items = ['https://res.cloudinary.com/dbmrdwsfb/image/upload/v1653327682/Recipe/recipe6_ve0p71.jpg','https://res.cloudinary.com/dbmrdwsfb/image/upload/v1653327645/Recipe/recipe11_iyysjk.jpg','https://res.cloudinary.com/dbmrdwsfb/image/upload/v1653327666/Recipe/recipe9_nmzwbo.jpg']
 
 
 
