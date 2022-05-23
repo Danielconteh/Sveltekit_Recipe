@@ -1,19 +1,9 @@
 <script>
-	import Image from "svelte-image";
 	import { imgRotate,initialPageNumber } from '../store';
 	import { onMount } from "svelte";
 
-	let blur=0.75
+		let items = ['https://res.cloudinary.com/dbmrdwsfb/image/upload/v1653327682/Recipe/recipe6_ve0p71.jpg','https://res.cloudinary.com/dbmrdwsfb/image/upload/v1653327663/Recipe/recipe1_hyayjc.jpg','https://res.cloudinary.com/dbmrdwsfb/image/upload/v1653327645/Recipe/recipe11_iyysjk.jpg','https://res.cloudinary.com/dbmrdwsfb/image/upload/v1653327666/Recipe/recipe9_nmzwbo.jpg','https://res.cloudinary.com/dbmrdwsfb/image/upload/v1653327645/Recipe/recipe4_iimcsx.jpg']
 
-	import img1 from '$lib/assets/recipe2.webp?webp&srcset&fit=cover';
-	import img2 from '$lib/assets/recipe4.jpg?webp&srcset&fit=cover';
-	import img3 from '$lib/assets/recipe6.jpg?webp&srcset&fit=cover';
-	import img4 from '$lib/assets/recipe9.jpg?webp&srcset&fit=cover';
-	import img5 from '$lib/assets/recipe11.jpg?webp&srcset&fit=cover';
-	
-
-	
-	let items = [img1,img2,img3,img4,img5]
 
 
 // simple trick [waite for the image before the animation start]
@@ -52,7 +42,6 @@
 		pauseOnFocus={true} 
 		dots={false}  
 		initialPageIndex={JSON.parse($initialPageNumber)?.page}
-		loaded=[5]
 		on:pageChange={
     event => $initialPageNumber = JSON.stringify({page:event.detail})
 			}>
@@ -62,7 +51,8 @@
 			<div key={index} class="banner" style="width:100%; position:relative; overflow:hidden">
 
 
-					<img use:onload class="selfImg" srcset={item} alt="baner_image"width="100%" height="100%" />			
+					<img use:onload src={item} alt="baner_image"width="100%" height="100%"  style="object-fit:	cover; position:relative;"/>			
+			
 			
 			</div>
 			

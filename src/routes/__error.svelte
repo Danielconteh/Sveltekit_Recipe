@@ -18,7 +18,6 @@ import {goto} from '$app/navigation';
  
  export let message;
   export let status;
-    $:console.log({ error, status })
 
 
   $:if(message === 'error loading dynamically imported module')  goto('/')

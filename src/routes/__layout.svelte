@@ -1,4 +1,9 @@
 <script>
+  import { initialize } from 'svelte-cloudinary'
+
+  initialize({ cloud_name: 'dbmrdwsfb' })
+
+
 	import NProgress from 'nprogress';
 	import { navigating } from '$app/stores';
 
