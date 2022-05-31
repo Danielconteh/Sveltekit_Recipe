@@ -28,7 +28,8 @@ const queryResult =  useQuery($page?.url?.pathname.replace('/',''), ()=>  axios.
 
     {#if $queryResult.isLoading || $queryResult.isFetching}
     	<div class="spinner">
-        				<Icon icon="ei:spinner-2" color="#ffffff" width="50" />
+  		<Icon icon="ei:spinner" width="70" height="70" />
+
 		</div>
   {/if}
 
