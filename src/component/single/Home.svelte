@@ -14,7 +14,8 @@ import HowToCokeIt from './howToCokeIt.svelte';
 
 
 const queryResult =  useQuery($page?.url?.pathname.replace('/',''), ()=>  axios.get(`https://forkify-api.herokuapp.com/api/v2/recipes/${$page?.url?.pathname.replace('/','')}?key=2b6e977f-717b-462d-9ddd-0191e4dd46bc`,),{
-			cacheTime:60 * 60 *24
+			cacheTime:60 * 60 *24,
+			refetchOnWindowFocus:true
 		})
 
 
@@ -87,7 +88,7 @@ const queryResult =  useQuery($page?.url?.pathname.replace('/',''), ()=>  axios.
   z-index: 1;
   width:100%
 	padding0rem 3rem; 
-	animation: spinner 900ms infinite cubic-bezier(0.445, 0.05, 0.55, 0.95);
+	animation: spinner 700ms infinite cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 
 @keyframes spinner {
