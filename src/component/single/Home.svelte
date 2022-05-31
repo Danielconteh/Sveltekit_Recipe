@@ -14,8 +14,7 @@ import HowToCokeIt from './howToCokeIt.svelte';
 
 
 const queryResult =  useQuery($page?.url?.pathname.replace('/',''), ()=>  axios.get(`https://forkify-api.herokuapp.com/api/v2/recipes/${$page?.url?.pathname.replace('/','')}?key=2b6e977f-717b-462d-9ddd-0191e4dd46bc`,),{
-			cacheTime:60 * 60 *24,
-			refetchOnWindowFocus:true
+			cacheTime:60 * 60 *24
 		})
 
 
@@ -28,7 +27,7 @@ const queryResult =  useQuery($page?.url?.pathname.replace('/',''), ()=>  axios.
 
     {#if $queryResult.isLoading || $queryResult.isFetching}
     	<div class="spinner">
-  		<Icon icon="ei:spinner" width="70" height="70" />
+  		<Icon icon="ei:spinner" width="70" height="70" color="#fff" />
 
 		</div>
   {/if}
