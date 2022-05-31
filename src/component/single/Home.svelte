@@ -25,8 +25,9 @@ const queryResult =  useQuery($page?.url?.pathname.replace('/',''), ()=>  axios.
   <title>{$queryResult?.data?.data?.data?.recipe?.title || ''}</title>
   </svelte:head>
 
+	//|| $queryResult.isFetching
 
-    {#if $queryResult.isLoading || $queryResult.isFetching}
+    {#if $queryResult.isLoading}
     	<div class="spinner">
   		<Icon icon="ei:spinner" width="70" height="70" color="#fff" />
 
