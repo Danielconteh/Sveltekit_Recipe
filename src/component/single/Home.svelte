@@ -25,7 +25,7 @@ const queryResult =  useQuery($page?.url?.pathname.replace('/',''), ()=>  axios.
   <title>{$queryResult?.data?.data?.data?.recipe?.title || ''}</title>
   </svelte:head>
 
-	//|| $queryResult.isFetching
+	
 
     {#if $queryResult.isLoading}
     	<div class="spinner">
